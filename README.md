@@ -1,14 +1,13 @@
-
-# 🚀 MongoDB setup guide
+# 🚀 MongoDB Setup Guide (Docker Compose)
 
 ---
 
-# 1. Khởi động MongoDB bằng Docker
+# 1. Khởi động MongoDB bằng Docker Compose
 
 ## Chạy MongoDB
 
 ```bash
-docker run -d -p 27017:27017 --name mongodb mongo
+docker compose up -d
 ```
 
 ## Kiểm tra container
@@ -25,12 +24,22 @@ Kết quả mong đợi:
 
 ---
 
-# 2. Kiểm tra MongoDB hoạt động
+# 2. Thông tin cấu hình MongoDB
 
-## Mở Mongo Shell
+```text
+Username: root
+Password: password
+Database: product-service
+```
+
+---
+
+# 3. Kiểm tra MongoDB hoạt động
+
+## Mở Mongo Shell (có auth)
 
 ```bash
-mongosh
+mongosh "mongodb://root:password@localhost:27017/?authSource=admin"
 ```
 
 Nếu thành công:
@@ -47,19 +56,22 @@ show dbs
 
 ---
 
-# 3. Cấu hình Spring Boot
+# 4. Cấu hình Spring Boot
 
 ## application.properties
 
 ```properties
-spring.data.mongodb.uri=mongodb://localhost:27017/product-service
+spring.data.mongodb.uri=mongodb://root:password@localhost:27017/product-service?authSource=admin
 ```
 
-* Port mặc định MongoDB là 27017
+📌 Lưu ý:
+
+* MongoDB có authentication → phải có username/password
+* Port mặc định: 27017
 
 ---
 
-# 4. Chạy Spring Boot
+# 5. Chạy Spring Boot
 
 ```bash
 ./mvnw spring-boot:run
@@ -88,20 +100,19 @@ db.product.find()
 ## Start lại
 
 ```bash
-docker start mongodb
+docker compose start
 ```
 
 ## Stop
 
 ```bash
-docker stop mongodb
+docker compose stop
 ```
 
-## Xoá container
+## Xoá toàn bộ (container + network)
 
 ```bash
-docker rm -f mongodb
+docker compose down
 ```
 
 ---
-
