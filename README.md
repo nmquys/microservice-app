@@ -19,12 +19,12 @@ docker ps
 Kết quả mong đợi:
 
 ```
-0.0.0.0:27017->27017
+PORTS: 0.0.0.0:27017->27017
 ```
 
 ---
 
-# 2. Thông tin cấu hình MongoDB
+# 2. Thông tin cấu hình MongoDB trong docker-compose
 
 ```text
 Username: root
@@ -39,13 +39,13 @@ Database: product-service
 ## Mở Mongo Shell (có auth)
 
 ```bash
-mongosh "mongodb://root:password@localhost:27017/?authSource=admin"
+mongosh "mongodb://root:password@localhost:27017/product-service?authSource=admin"
 ```
 
 Nếu thành công:
 
 ```
-test>
+product-service>
 ```
 
 ## Test nhanh
