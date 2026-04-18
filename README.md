@@ -116,3 +116,88 @@ docker compose down
 ```
 
 ---
+
+# 🐬 MySQL Setup Guide (Linux + IntelliJ)
+
+## 1. Truy cập MySQL bằng quyền root (Linux)
+
+Sử dụng quyền `sudo` để vào MySQL mà không cần password:
+
+```bash
+sudo mysql
+```
+
+---
+
+## 2. Thiết lập password cho user `root`
+
+### 🔹 Trường hợp CHƯA có password
+
+Chạy các lệnh sau trong MySQL:
+
+```sql
+ALTER USER 'root'@'localhost'
+IDENTIFIED WITH mysql_native_password BY 'Root@123456';
+
+FLUSH PRIVILEGES;
+```
+
+---
+
+### 🔹 Trường hợp ĐÃ có password
+
+Thoát MySQL:
+
+```sql
+exit;
+```
+
+Login lại bằng password:
+
+```bash
+mysql -u root -p
+```
+
+Nhập password:
+
+```text
+Ex: Root@12345
+```
+
+---
+
+## 3. Kiểm tra đăng nhập
+
+Sau khi login thành công, bạn sẽ thấy:
+
+```bash
+mysql>
+```
+
+---
+
+## 4. Cấu hình IntelliJ IDEA
+
+Trong IntelliJ:
+
+* **Host**: `localhost`
+* **Port**: `3306`
+* **User**: `root`
+* **Password**: (password đã set ở trên)
+* **Database**: (có thể để trống hoặc nhập tên DB)
+
+👉 URL:
+
+```text
+jdbc:mysql://localhost:3306
+```
+
+---
+
+## 5. Kiểm tra kết nối
+
+* Nhấn **Test Connection**
+* Nếu thành công sẽ hiển thị version MySQL (ví dụ: 8.x.x)
+
+---
+
