@@ -4,9 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### MongoDB ###
-product-service/data/
-
 ### STS ###
 .apt_generated
 .classpath
@@ -21,7 +18,7 @@ product-service/data/
 *.iws
 *.iml
 *.ipr
-product-service/data
+mysql
 
 ### NetBeans ###
 /nbproject/private/
@@ -35,4 +32,3 @@ build/
 
 ### VS Code ###
 .vscode/
-/data/
