@@ -176,7 +176,12 @@ mysql>
 
 ---
 
-## 4. Cấu hình IntelliJ IDEA
+## 4. Kiểm tra Database
+```bash
+mysql> SHOW DATABASE;
+```
+
+## 5. Cấu hình IntelliJ IDEA
 
 Trong IntelliJ:
 
@@ -189,15 +194,17 @@ Trong IntelliJ:
 👉 URL:
 
 ```text
-jdbc:mysql://localhost:3306
+jdbc:mysql://localhost:3306/order_service
 ```
 
 ---
 
-## 5. Kiểm tra kết nối
+## 6. Kiểm tra kết nối
 
 * Nhấn **Test Connection**
 * Nếu thành công sẽ hiển thị version MySQL (ví dụ: 8.x.x)
 
 ---
+<img width="682" height="741" alt="image" src="https://github.com/user-attachments/assets/29a4d754-94cb-4f8f-aaa9-5f72b9cd76a3" />
+
 
