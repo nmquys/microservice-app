@@ -19,6 +19,7 @@ target/
 *.iml
 *.ipr
 mysql
+docker
 
 ### NetBeans ###
 /nbproject/private/
